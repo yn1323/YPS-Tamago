@@ -1,0 +1,20 @@
+name: chromatic_pr_onpush
+
+on:
+  pull_request:
+    paths:
+      - 'web/src/**'
+
+jobs:
+  chromatic_pr_onpush:
+    if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name , 'renovate'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Chromatic
+        uses: ./.github/actions/chromatic
+        with:
+          G_TOKEN: ${{ secrets.G_TOKEN }}
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

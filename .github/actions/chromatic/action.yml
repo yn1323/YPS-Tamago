@@ -1,0 +1,28 @@
+inputs:
+  G_TOKEN:
+    description: 'github token'
+    required: true
+  CHROMATIC_PROJECT_TOKEN:
+    description: 'chromatic token'
+    required: true
+runs:
+  using: 'Composite'
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash
+    - name: Build Storybook
+      run: yarn rw storybook --build
+      shell: bash
+    - name: Move MSW file
+      run: mv web/public/mockServiceWorker.js web/public/storybook
+      shell: bash
+    - name: Publish to Chromatic
+      uses: chromaui/action@v1
+      with:
+        token: ${{ inputs.G_TOKEN }}
+        projectToken: ${{ inputs.CHROMATIC_PROJECT_TOKEN }}
+        storybookBuildDir: web/public/storybook

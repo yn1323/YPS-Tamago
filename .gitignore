@@ -9,6 +9,7 @@ dist-babel
 node_modules
 yarn-error.log
 web/public/mockServiceWorker.js
+web/public/storybook
 web/types/graphql.d.ts
 api/types/graphql.d.ts
 .pnp.*
@@ -18,3 +19,7 @@ api/types/graphql.d.ts
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Supabase
+**/supabase/.branches
+**/supabase/.temp

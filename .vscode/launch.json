@@ -3,7 +3,25 @@
   "configurations": [
     {
       "command": "yarn redwood dev --apiDebugPort 18911",
-      "name": "Run Dev Server",
+      "name": "Run RedwoodJS Dev Server",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "supabase start",
+      "name": "Run Local Supabase Server",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "yarn rw storybook",
+      "name": "Run Storybook",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "yarn rw test",
+      "name": "Run Jest Watch Mode",
       "request": "launch",
       "type": "node-terminal"
     },
@@ -15,8 +33,6 @@
         "<node_internals>/**"
       ],
       "type": "node",
-      "protocol": "inspector",
-      "stopOnEntry": false,
       "localRoot": "${workspaceFolder}/node_modules/@redwoodjs/api-server/dist",
       "remoteRoot": "${workspaceFolder}/node_modules/@redwoodjs/api-server/dist",
       "sourceMaps": true,

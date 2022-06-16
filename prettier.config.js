@@ -6,7 +6,7 @@ module.exports = {
   tabWidth: 2,
   semi: false,
   singleQuote: true,
-  arrowParens: 'always',
+  arrowParens: 'avoid',
   overrides: [
     {
       files: 'Routes.*',

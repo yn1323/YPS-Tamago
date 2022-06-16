@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "yarn run scaffdog generate",
+      "label": "scaffdog版 scaffolding",
+      "detail": "Page, Component, Cell作成にオススメ！！",
+    },
+    {
+      "type": "shell",
+      "command": "yarn rw g page ${input:pageName}",
+      "label": "Redwood ページの作成(Scaffdogの方がいいかも)",
+      "detail": "yarn rw g page ${input:pageName}",
+    },
+    {
+      "type": "shell",
+      "command": "yarn rw g component ${input:componentName}",
+      "label": "Redwood コンポーネントの作成(Scaffdogの方がいいかも)",
+      "detail": "yarn rw g component ${input:componentName}",
+    },
+    {
+      "type": "shell",
+      "command": "yarn rw g cell ${input:cellName}",
+      "label": "Redwood Cellの作成(Scaffdogの方がいいかも)",
+      "detail": "yarn rw g cell ${input:cellName}",
+    },
+    {
+      "type": "shell",
+      "command": "yarn rw g sdl ${input:sdlName}",
+      "label": "Redwood SDL作成",
+      "detail": "yarn rw g sdl ${input:sdlName}"
+    },
+    {
+      "type": "shell",
+      "command": "yarn rw prisma migrate dev",
+      "label": "Redwood Prisma migrate",
+      "detail": "yarn rw prisma migrate dev"
+    },
+  ],
+  "inputs": [
+    {
+      "id": "pageName",
+      "description": "ページ名",
+      "default": "",
+      "type": "promptString"
+    },
+    {
+      "id": "componentName",
+      "description": "コンポーネント名",
+      "default": "",
+      "type": "promptString"
+    },
+    {
+      "id": "cellName",
+      "description": "cell名",
+      "default": "",
+      "type": "promptString"
+    },
+    {
+      "id": "sdlName",
+      "description": "SDL名(事前にmodelを作成しておく必要があります)",
+      "default": "",
+      "type": "promptString"
+    },
+  ]
+}

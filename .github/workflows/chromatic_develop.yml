@@ -1,0 +1,21 @@
+name: chromatic_development
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'web/src/**'
+
+jobs:
+  chromatic_develop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Chromatic
+        uses: ./.github/actions/chromatic
+        with:
+          G_TOKEN: ${{ secrets.G_TOKEN }}
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
